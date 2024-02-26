@@ -2,11 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, TextInput, Alert, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { StatusBar } from 'expo-status-bar';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
-import { initializeApp } from 'firebase/app';
-import { initializeAuth, getReactNativePersistence } from 'firebase/auth';
-import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
-import { firebaseConfig } from '../firebase-config';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigation } from '@react-navigation/native';
 import { auth } from '../firebase';
 
@@ -66,6 +62,7 @@ const LoginScreen = () => {
                 style={styles.input}
                 placeholder='Email'
                 placeholderTextColor='#b2b2b2'
+                autoCapitalize='none'
             />
             <TextInput
                 onChangeText={(text) => setPassword(text)}
@@ -82,13 +79,13 @@ const LoginScreen = () => {
                 </LinearGradient>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={handleCreateAccount}>
+            {/* <TouchableOpacity onPress={handleCreateAccount}>
                 <LinearGradient
                     colors={['#4c669f', '#3b5998', '#192f6a']}
                     style={styles.button}>
                     <Text style={styles.buttonText}>Create Account</Text>
                 </LinearGradient>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
 
             <Text style={styles.forgotPassword}>Forgot your password?</Text>
             <StatusBar style="auto" />
